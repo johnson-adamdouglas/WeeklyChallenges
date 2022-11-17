@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace ChallengesWithTestsMark8
@@ -8,7 +9,7 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            return Char.IsLetter(c);
+            return char.IsLetter(c);
             //throw new NotImplementedException();
         }
 
@@ -32,11 +33,11 @@ namespace ChallengesWithTestsMark8
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            if (numbers == null || numbers.Count() == 0)
-            {
-                return 0;
-            }
-            return numbers.Min() + numbers.Max();
+            //if (numbers == null || numbers.Count() == 0)
+            //{
+            //    return 0;
+            //}
+            return numbers == null || numbers.Count() == 0 ? 0 : numbers.Min() + numbers.Max();
             //throw new NotImplementedException();
         }
 
@@ -48,56 +49,61 @@ namespace ChallengesWithTestsMark8
 
         public int Sum(int[] numbers)
         {
-            if (numbers == null)
-            {
-                return 0;
-            }
-            int sum = 0;
-            foreach(var number in numbers)
-            {
-                sum += number;
-            }
-            return sum;
+            //if (numbers == null)
+            //{
+            //    return 0;
+            //}
+            //int sum = 0;
+            //foreach(var number in numbers)
+            //{
+            //    sum += number;
+            //}
+            //return sum;
+            //return numbers == null ? 0 : numbers.Sum();
+            return numbers?.Sum() ?? 0;
             //throw new NotImplementedException();
         }
 
         public int SumEvens(int[] numbers)
         {
-            if (numbers == null)
-            {
-                return 0;
-            }
-            int sum = 0;
-            foreach (int number in numbers)
-            {
-                if (number % 2 == 0)
-                {
-                    sum += number;
-                }
-            }
-            return sum;
+            //if (numbers == null)
+            //{
+            //    return 0;
+            //}
+            //int sum = 0;
+            //foreach (int number in numbers)
+            //{
+            //    if (number % 2 == 0)
+            //    {
+            //        sum += number;
+            //    }
+            //}
+            //return sum;
+            //return numbers == null ? 0 : numbers.Where(x => x % 2 == 0).Sum();
+            return numbers?.Where(x => x % 2 == 0).Sum() ?? 0;
             //throw new NotImplementedException();
         }
 
         public bool IsSumOdd(List<int> numbers)
         {
-            if (numbers == null) 
-            { 
-                return false; 
-            }
-            int sum = 0;
-            foreach (int num in numbers)
-            {
-                sum += num;
-            }
-            return sum % 2 != 0;
+            //if (numbers == null)
+            //{
+            //    return false;
+            //}
+            //int sum = 0;
+            //foreach (int num in numbers)
+            //{
+            //    sum += num;
+            //}
+            //return sum % 2 != 0;
+            return numbers == null ? false : numbers.Sum() % 2 != 0;
             //throw new NotImplementedException();
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
             long sum = 0;
-            if ( number < 1)
+            if (number < 1)
             {
                 return 0;
             }
@@ -109,6 +115,7 @@ namespace ChallengesWithTestsMark8
             {
                 return (number - 1) / 2;
             }
+
             //throw new NotImplementedException();
         }
     }
